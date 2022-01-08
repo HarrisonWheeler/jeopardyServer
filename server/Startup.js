@@ -16,7 +16,7 @@ export default class Startup {
   }
 
   static configureCors(app) {
-    const allowedDomains = ['https://localhost:8080']
+    const allowedDomains = ['https://harrisonwheeler.github.io/personal-jeopardy/']
     const corsOptions = {
       origin(origin, callback) {
         if (process.env.NODE_ENV === 'dev') {
