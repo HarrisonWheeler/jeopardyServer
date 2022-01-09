@@ -16,7 +16,7 @@ export default class Startup {
   }
 
   static configureCors(app) {
-    const allowedDomains = ['https://harrisonwheeler.github.io/personal-jeopardy/', 'https://harrisonwheeler.github.io', 'jeoparty-server.herokuapp.com']
+    const allowedDomains = ['https://harrisonwheeler.github.io/personal-jeopardy/', 'https://harrisonwheeler.github.io', 'https://jeoparty-server.herokuapp.com', 'https://localhost:8080']
     const corsOptions = {
       origin(origin, callback) {
         if (process.env.NODE_ENV === 'dev') {
