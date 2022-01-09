@@ -4,5 +4,6 @@ import { baseURL } from '../env.js'
 // @ts-ignore
 export const api = axios.create({
   baseURL,
-  timeout: 8000
+  timeout: 8000,
+
 })

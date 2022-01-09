@@ -16,8 +16,9 @@ export default class Startup {
   }
 
   static configureCors(app) {
-    const allowedDomains = ['https://harrisonwheeler.github.io/personal-jeopardy/', 'https://harrisonwheeler.github.io']
+    const allowedDomains = ['https://harrisonwheeler.github.io/personal-jeopardy/', 'https://harrisonwheeler.github.io', 'jeoparty-server.herokuapp.com']
     const corsOptions = {
+
       origin(origin, callback) {
         if (process.env.NODE_ENV === 'dev') {
           return callback(null, true)
@@ -25,10 +26,13 @@ export default class Startup {
         const originIsWhitelisted = allowedDomains.indexOf(origin) !== -1
         callback(null, originIsWhitelisted)
       },
-      credentials: true
+      credentials: true,
     }
 
     app.use(cors(corsOptions))
+    app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*")
+    })
   }
 
   static ConfigureRoutes(app) {
